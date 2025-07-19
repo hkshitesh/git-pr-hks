@@ -1,0 +1,25 @@
+bidding_dict={}
+should_continue=True
+while should_continue:
+    name = input("What is your name?: ")
+    bid = input("What is your bid?: $")
+    bidding_dict[name]=bid
+    print("current_dictionary:", bidding_dict)
+
+    question=input("Are there any other bidder? Type 'yes' or 'no':")
+    if question.lower() == "no":
+        max_bid=0
+        for i in bidding_dict:
+            if bidding_dict[i]>str(max_bid):
+                max_bid=bidding_dict[i]
+        
+        for key,value in bidding_dict.items():
+            if value==max_bid:
+                print(f"The winner is {key} with {max_bid}")
+        
+        should_continue=False
+        print("Thank you all for your time")
+    elif question.lower()=="yes":
+        print("\n" * 10)
+        should_continue=True
+        
